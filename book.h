@@ -10,10 +10,10 @@ class Book
         string BookName;
         string Author;
         double Price;
-        bool Available;
+        int Available;
     public:
         Book();
-        Book(string BN, string A, double P, bool Av);
+        Book(string BN, string A, double P, int Av);
 };
 
 #endif

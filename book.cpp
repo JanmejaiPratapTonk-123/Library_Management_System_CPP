@@ -5,10 +5,10 @@ Book::Book()
     BookName = "";
     Author = "";
     Price = 0;
-    Available = true;
+    Available = 1;
 }
 
-Book::Book(string BN, string A, double P, bool Av)
+Book::Book(string BN, string A, double P, int Av)
 {
     BookName = BN;
     Author = A;
