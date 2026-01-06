@@ -14,6 +14,10 @@ class Book
     public:
         Book();
         Book(string BN, string A, double P, int Av);
+        string getBookName();
+        string getAuthor();
+        double getPrice();
+        int isAvailable();
 };
 
 #endif

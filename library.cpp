@@ -21,17 +21,26 @@ void Library::loadFromFile()
         string priceStr;
         string availStr;
         getline(ss, bookName, '|');
-        cout << bookName << endl;
         getline(ss, author, '|');
-        cout << author << endl;
         getline(ss, priceStr, '|');
         double price = stod(priceStr);
-        cout << price << endl;
         getline(ss, availStr, '|');
         int avail = stoi(availStr);
-        if(avail == 1)
-            cout << "Available" << endl;
-        else
-            cout << "Not Available" << endl;
+        Book book(bookName, author, price, avail);
+        books.push_back(book);
+    }
+    file.close();
+}
+
+void Library::displayBooks()
+{
+    for(auto& book : books)
+    {
+        cout << "--------------------" << endl;
+        cout << "Book Name : " << book.getBookName() << endl;
+        cout << "Author : " << book.getAuthor() << endl; 
+        cout << "Price : " << book.getPrice() << endl;
+        cout << "Status : " << (book.isAvailable() ? "Available" : "Not Available") << endl;
+        cout << "--------------------" << endl;
     }
 }
