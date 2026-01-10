@@ -5,18 +5,19 @@ using namespace std;
 
 int main()
 {
-    cout << "Library Management System" << endl;
-    cout << "Choose an option:" << endl;
+    cout << "Library Management System\n" << endl;
+    Library library;
     while(true)
     {
+        cout << "Choose an option:" << endl;
         cout << "1. Load Books from File" << endl;
         cout << "2. Display Books" << endl;
-        cout << "3. Exit" << endl;
+        cout << "3. Search Books by Name" << endl;
+        cout << "4. Exit" << endl;
         cout << "Enter your choice: ";
         int choice;
         cin >> choice;
 
-        Library library;
 
         switch(choice)
         {
@@ -28,6 +29,15 @@ int main()
                 library.displayBooks();
                 break;
             case 3:
+            {
+                cout << "Enter book name to search: ";
+                string name;
+                cin.ignore();
+                getline(cin, name);
+                library.searchBookByName(name);
+                break;
+            }
+            case 4:
                 cout << "Exiting the program." << endl;
                 return 0;
             default:

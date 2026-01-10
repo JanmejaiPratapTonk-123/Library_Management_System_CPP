@@ -44,3 +44,22 @@ void Library::displayBooks()
         cout << "--------------------" << endl;
     }
 }
+
+void Library::searchBookByName(string name)
+{
+    for(auto& book : books)
+    {
+        if(book.getBookName() == name)
+        {
+            cout << "Book Found:" << endl;
+            cout << "--------------------" << endl;
+            cout << "Book Name : " << book.getBookName() << endl;
+            cout << "Author : " << book.getAuthor() << endl; 
+            cout << "Price : " << book.getPrice() << endl;
+            cout << "Status : " << (book.isAvailable() ? "Available" : "Not Available") << endl;
+            cout << "--------------------" << endl;
+            return;
+        }
+    }
+    cout << "Book not found." << endl;
+}

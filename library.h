@@ -12,6 +12,7 @@ class Library
     public:
         void loadFromFile();
         void displayBooks();
+        void searchBookByName(string name);
 };
 
 #endif
