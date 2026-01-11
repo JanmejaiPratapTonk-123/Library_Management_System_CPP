@@ -3,9 +3,11 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include <algorithm>
 
-void Library::loadFromFile()
+void Library::loadFromFile(int *flag_Load)
 {
+    *flag_Load = 1;
     ifstream file("books.txt");
     if(!file.is_open())
     {
@@ -36,12 +38,12 @@ void Library::displayBooks()
 {
     for(auto& book : books)
     {
-        cout << "--------------------" << endl;
+        cout << "-------------------" << endl;
         cout << "Book Name : " << book.getBookName() << endl;
         cout << "Author : " << book.getAuthor() << endl; 
         cout << "Price : " << book.getPrice() << endl;
         cout << "Status : " << (book.isAvailable() ? "Available" : "Not Available") << endl;
-        cout << "--------------------" << endl;
+        cout << "-------------------" << endl;
     }
 }
 
@@ -52,12 +54,71 @@ void Library::searchBookByName(string name)
         if(book.getBookName() == name)
         {
             cout << "Book Found:" << endl;
-            cout << "--------------------" << endl;
+            cout << "-------------------" << endl;
             cout << "Book Name : " << book.getBookName() << endl;
             cout << "Author : " << book.getAuthor() << endl; 
             cout << "Price : " << book.getPrice() << endl;
             cout << "Status : " << (book.isAvailable() ? "Available" : "Not Available") << endl;
-            cout << "--------------------" << endl;
+            cout << "-------------------" << endl;
+            return;
+        }
+    }
+    cout << "Book not found." << endl;
+}
+
+void Library::saveToFile()
+{
+    ofstream file("books.txt");
+    if(!file.is_open())
+    {
+        cerr << "Error opening file." << endl;
+        return;
+    }
+    for(auto& book : books)
+    {
+        file << book.getBookName() << "|" << book.getAuthor() << "|" << book.getPrice() << "|" << book.isAvailable() << endl;
+    }
+    cout << "Books saved to file successfully." << endl;
+    file.close();
+}
+
+void Library::addBook()
+{
+    string bookName;
+    string author;
+    double price;
+    int avail;
+
+    cout << "Enter Book Name: ";
+    cin.ignore();
+    getline(cin, bookName);
+    cout << "Enter Author: ";
+    getline(cin, author);
+    cout << "Enter Price: ";
+    cin >> price;
+    cout << "Is the book available? (1 for Yes, 0 for No): ";
+    cin >> avail;
+
+    Book newBook(bookName, author, price, avail);
+    books.push_back(newBook);
+    saveToFile();
+    cout << "Book added successfully." << endl;
+}
+
+
+void Library::deleteBook()
+{
+    string name;
+    cout << "Enter Book's Name to Delete: ";
+    cin.ignore();
+    getline(cin, name);
+    for(auto it = books.begin(); it != books.end(); it++)
+    {
+        if(it->getBookName() == name)
+        {
+            books.erase(it);
+            saveToFile();
+            cout << "Book Deleted Successfully." << endl;
             return;
         }
     }

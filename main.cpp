@@ -7,13 +7,16 @@ int main()
 {
     cout << "Library Management System\n" << endl;
     Library library;
+    int flag_Load = 0;
     while(true)
     {
-        cout << "Choose an option:" << endl;
+        cout << "\nChoose an option:" << endl;
         cout << "1. Load Books from File" << endl;
         cout << "2. Display Books" << endl;
         cout << "3. Search Books by Name" << endl;
-        cout << "4. Exit" << endl;
+        cout << "4. Add Book" << endl;
+        cout << "5. Delete Book" << endl;
+        cout << "6. Exit" << endl;
         cout << "Enter your choice: ";
         int choice;
         cin >> choice;
@@ -22,7 +25,12 @@ int main()
         switch(choice)
         {
             case 1:
-                library.loadFromFile();
+                if(flag_Load == 1)
+                {
+                    cout << "Books have already been loaded from the file." << endl;
+                    break;
+                }
+                library.loadFromFile(&flag_Load);
                 cout << "Books loaded successfully." << endl;
                 break;
             case 2:
@@ -38,6 +46,12 @@ int main()
                 break;
             }
             case 4:
+                library.addBook();
+                break;
+            case 5:
+                library.deleteBook();
+                break;
+            case 6:
                 cout << "Exiting the program." << endl;
                 return 0;
             default:

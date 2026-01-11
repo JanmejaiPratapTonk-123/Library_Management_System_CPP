@@ -10,9 +10,12 @@ class Library
     private:
         vector<Book> books;
     public:
-        void loadFromFile();
+        void loadFromFile(int *flag_Load);
         void displayBooks();
         void searchBookByName(string name);
+        void addBook();
+        void saveToFile();
+        void deleteBook();
 };
 
 #endif
