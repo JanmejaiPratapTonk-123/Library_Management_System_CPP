@@ -5,9 +5,9 @@
 #include <iostream>
 #include <algorithm>
 
-void Library::loadFromFile(int *flag_Load)
+void Library::loadFromFile()
 {
-    *flag_Load = 1;
+    books.clear();
     ifstream file("books.txt");
     if(!file.is_open())
     {

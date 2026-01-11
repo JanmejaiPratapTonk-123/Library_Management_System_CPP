@@ -25,12 +25,7 @@ int main()
         switch(choice)
         {
             case 1:
-                if(flag_Load == 1)
-                {
-                    cout << "Books have already been loaded from the file." << endl;
-                    break;
-                }
-                library.loadFromFile(&flag_Load);
+                library.loadFromFile();
                 cout << "Books loaded successfully." << endl;
                 break;
             case 2:
