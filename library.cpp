@@ -150,3 +150,27 @@ void Library::issueBook()
     }
     cout << "Book not found." << endl;
 }
+
+void Library::returnBook()
+{
+    string name;
+    cout << "Enter Book's Name to Return: ";
+    cin.ignore();
+    getline(cin, name);
+    for(auto &book : books)
+    {
+        if(book.getBookName() == name)
+        {
+            if(book.isAvailable() == 1)
+            {
+                cout << "Book Already Available." << endl;
+                return;
+            }
+            book.setAvailable(1);
+            cout << "Book Returned." << endl;
+            saveToFile();
+            return;
+        }
+    }
+    cout << "Book not found." << endl;
+}

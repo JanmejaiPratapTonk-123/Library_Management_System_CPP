@@ -17,7 +17,8 @@ int main()
         cout << "4. Add Book" << endl;
         cout << "5. Delete Book" << endl;
         cout << "6. Issue Book" << endl;
-        cout << "7. Exit" << endl;
+        cout << "7. Return Book" << endl;
+        cout << "8. Exit" << endl;
         cout << "Enter your choice: ";
         int choice;
         cin >> choice;
@@ -51,6 +52,9 @@ int main()
                 library.issueBook();
                 break;
             case 7:
+                library.returnBook();
+                break;
+            case 8:
                 cout << "Exiting the program." << endl;
                 return 0;
             default:
