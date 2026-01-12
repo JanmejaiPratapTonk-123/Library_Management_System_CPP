@@ -16,6 +16,7 @@ class Library
         void addBook();
         void saveToFile();
         void deleteBook();
+        void issueBook();
 };
 
 #endif

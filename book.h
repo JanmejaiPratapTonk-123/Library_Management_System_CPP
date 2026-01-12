@@ -18,6 +18,7 @@ class Book
         string getAuthor();
         double getPrice();
         int isAvailable();
+        void setAvailable(int A);
 };
 
 #endif

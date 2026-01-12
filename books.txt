@@ -1,2 +1,2 @@
 Harry Potter|xyz|400|0
-C++|abc|500|1
+C++|abc|500|0

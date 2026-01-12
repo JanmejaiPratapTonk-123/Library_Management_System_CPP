@@ -35,3 +35,8 @@ int Book::isAvailable()
 {
     return Available;
 }
+
+void Book::setAvailable(int A)
+{
+    Available = A;
+}

@@ -124,3 +124,29 @@ void Library::deleteBook()
     }
     cout << "Book not found." << endl;
 }
+
+void Library::issueBook()
+{
+    string name;
+    cout << "Enter Book's Name to Issue: ";
+    cin.ignore();
+    getline(cin, name);
+    for(auto &book : books)
+    {
+        if(book.getBookName() == name)
+        {
+            if(book.isAvailable())
+            {
+                book.setAvailable(0);
+                saveToFile();
+                cout << "Book Issued Successfully." << endl;
+            }
+            else
+            {
+                cout << "Book already issued." << endl;
+            }
+            return;
+        }
+    }
+    cout << "Book not found." << endl;
+}

@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    cout << "Library Management System\n" << endl;
+    cout << "Library Management System" << endl;
     Library library;
     int flag_Load = 0;
     while(true)
@@ -16,7 +16,8 @@ int main()
         cout << "3. Search Books by Name" << endl;
         cout << "4. Add Book" << endl;
         cout << "5. Delete Book" << endl;
-        cout << "6. Exit" << endl;
+        cout << "6. Issue Book" << endl;
+        cout << "7. Exit" << endl;
         cout << "Enter your choice: ";
         int choice;
         cin >> choice;
@@ -47,6 +48,9 @@ int main()
                 library.deleteBook();
                 break;
             case 6:
+                library.issueBook();
+                break;
+            case 7:
                 cout << "Exiting the program." << endl;
                 return 0;
             default:
