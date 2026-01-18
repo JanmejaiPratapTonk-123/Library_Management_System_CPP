@@ -7,7 +7,6 @@ int main()
 {
     cout << "Library Management System" << endl;
     Library library;
-    int flag_Load = 0;
     while(true)
     {
         cout << "\nChoose an option:" << endl;
