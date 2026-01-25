@@ -5,7 +5,6 @@ using namespace std;
 
 int main()
 {
-    cout << "Library Management System" << endl;
     Library library;
     while(true)
     {
